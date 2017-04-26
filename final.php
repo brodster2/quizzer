@@ -13,14 +13,10 @@
     </header>
     <main>
         <div class="container">
-            <h2>Test your PHP knowledge</h2>
-            <p>This is a multiple choice quiz to test your knowledge of PHP.</p>
-            <ul>
-                <li><strong>Number of questions: </strong>5</li>
-                <li><strong>Type: </strong>Multiple choice</li>
-                <li><strong>Estimated time: </strong>4 minutes</li>
-            </ul>
-            <a href="question.php?n=1" class="start">Start Quiz</a>
+            <h2>You're Done!</h2>
+            <p>Congrats! You have completed the test</p>
+            <p>Final score: 5</p>
+            <a href="question.php?n=1" class="start">Take Again</a>
         </div>
     </main>
     <footer>
