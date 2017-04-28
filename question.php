@@ -1,3 +1,28 @@
+<?php include 'database.php'; ?>
+<?php
+    // Set question number using n in the URL (see index.php)
+    $number = (int) $_GET['n'];
+
+    /*
+    * Get Question
+    */
+    $query = "SELECT * FROM `questions`
+                WHERE question_number = $number";
+    
+    //Get query results
+    $result = $mysqli->query($query) or die($mysqli->error._LINE_);
+
+    $question = $result->fetch_assoc();
+
+    /*
+    * Get Choices
+    */
+    $query = "SELECT * FROM `choices`
+                WHERE question_number = $number";
+    
+    //Get query results
+    $choices = $mysqli->query($query) or die($mysqli->error._LINE_);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,16 +38,15 @@
     </header>
     <main>
         <div class="container">
-            <div class="current">Question 1 of 5</div>
+            <div class="current">Question <?php echo $number ?> of 5</div>
             <p class="question">
-                What does PHP stand for?
+                <?php echo $question['text']; ?>
             </p>
             <form method="post" action="process.php">
                 <ul class="choices">
-                    <li><input name="choice" type="radio" value="1">PHP: Hypertext Preprocessor</li>
-                    <li><input name="choice" type="radio" value="1">Private home page</li>
-                    <li><input name="choice" type="radio" value="1">Personal home page</li>
-                    <li><input name="choice" type="radio" value="1">Personal Hypertext Preprocessor</li>
+                    <?php while($row = $choices->fetch_assoc()): ?>
+                        <li><input name="choice" type="radio" value="<?php echo $row['id']; ?>"><?php echo $row['text']; ?></li>
+                    <?php endwhile; ?>
                 </ul>
                 <input type="submit" name="submit" value="Submit">
             </form>
