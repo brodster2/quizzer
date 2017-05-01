@@ -1,3 +1,33 @@
+<?php
+include "database.php";
+if(isset($_POST['submit'])){
+    //Get post variables
+    $question_number = $_POST['question_number'];
+    $question_text = $_POST['question_text'];
+    //Choices array
+    $choices = array();
+    $choices[0] = $_POST['choice1'];
+    $choices[1] = $_POST['choice2'];
+    $choices[2] = $_POST['choice3'];
+    $choices[3] = $_POST['choice4'];
+    $choices[4] = $_POST['choice5'];
+    
+    //Question query
+    $query = "INSERT INTO `questions`(question_number, text)
+                VALUES('question_number', 'question_text')";
+    //Run query
+    $insert_row = $mysqli->query($query) or die(mysqli->error.__LINE__);
+    
+    //Validate insert row
+    if($insert_row){
+       foreach($choices as $choice => $value){
+           if($value != ''){
+               
+           }
+       } 
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -28,7 +28,7 @@ CREATE TABLE `choices` (
   `is_correct` tinyint(1) DEFAULT '0',
   `text` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `choices` (
 
 LOCK TABLES `choices` WRITE;
 /*!40000 ALTER TABLE `choices` DISABLE KEYS */;
+INSERT INTO `choices` VALUES (1,1,1,'PHP: Hypertext Preprocessor'),(2,1,0,'Private home page'),(3,1,0,'Personal home page'),(4,1,0,'Personal Hypertext Preprocessor'),(5,2,0,'Document.Write(\"Hello World\");'),(6,2,1,'echo \"Hello World\";'),(7,2,0,'\"Hello World\";');
 /*!40000 ALTER TABLE `choices` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,6 +61,7 @@ CREATE TABLE `questions` (
 
 LOCK TABLES `questions` WRITE;
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
+INSERT INTO `questions` VALUES (1,'What does PHP stand for?'),(2,'How do you write \"Hello World\" in PHP?');
 /*!40000 ALTER TABLE `questions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -72,4 +74,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-26 16:23:25
+-- Dump completed on 2017-05-01 13:34:23
