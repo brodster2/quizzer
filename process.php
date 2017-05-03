@@ -2,6 +2,10 @@
 <?php session_start(); ?>
 <?php
     //Check to see if score is set
+	/**
+	* BUG HERE!!!
+	* $_SESSION[score] needs to be reset if user chooses to take the test again.
+	*/
     if(!isset($_SESSION['score'])){
         $_SESSION['score'] = 0;
     }

@@ -30,7 +30,14 @@
                 <li><strong>Type: </strong>Multiple choice</li>
                 <li><strong>Estimated time: </strong><?php echo $total * 0.5 ?> minutes</li>
             </ul>
-            <a href="question.php?n=1" class="start">Start Quiz</a>
+            <?php
+				if($total == 0){
+					echo '<a href="add.php" class="start">Add Questions</a>';
+				} else {
+					echo '<a href="question.php?n=1" class="start">Start Quiz</a>';
+				}
+			?>
+       		
         </div>
     </main>
     <footer>
